@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Students</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="https://ethica.hu" class="brand-link">
+      <img src="data:image/jpeg;base64,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"
+ alt="Ethica Logo" width=200 height=50>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" data-toggle="tooltip" title="Students" class="nav-link active">
+              <p>
+                Students
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="#" data-toggle="tooltip" title="New student" class="nav-link" >
+                  <p>New student</p>
+                </a>
+            </li>
+            </ul>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="#" data-toggle="tooltip" title="Editing student" class="nav-link" >
+                  <p>Editing student</p>
+                </a>
+            </li>
+        </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Students</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Start page</a></li>
+              <li class="breadcrumb-item active">Students</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+		    <section class="content">
+            <!-- /.card -->
+            <!-- Horizontal Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">New student</h3>
+              </div>
+              <!-- /.card-header -->
+              <form action="/savestudent" method="post" class="form-horizontal">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">First name</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" name="firstname" placeholder="First name">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Last name</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" name="lastname" placeholder="Last name">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Age</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" name="age" placeholder="Age">
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">Save</button>
+                  <a href="/students" class="btn btn-default float-right">Cancel</a>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+            <!-- /.card -->
+		    </section>       
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong><a href="https://ethica.hu">© 2021 Ethica Technologies</a></strong>
+    <div class="float-right d-none d-sm-inline-block">
+		<span class="fas fa-envelope"></span><!--Éles rendszeren nem csinálnék ilyet nbsp.>< -->&nbsp&nbsp <a href="mailto:contact@ethica.hu">contact@ethica.hu</a>
+    </div>
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+
+<script>
+  $(function () {
+    $("#studentstable").DataTable({
+      "responsive": true,
+       "lengthChange": false,
+        "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#studentstable_wrapper .col-md-6:eq(0)');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Students</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+    <body>
+        <h2>List of students</h2>
+
+        <table>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+            </tr>
+
+        <tr th:each="student : ${students}">
+            <td><span th:text="${student.firstname}"> FirstName </span></td>
+            <td><span th:text="${student.lastname}"> Lastname </span></td>
+            <td><span th:text="${student.age}"> age </span></td>
+        </tr>
+        </table>
+    </body>
+</html>
